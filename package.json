@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "monorepo-template",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold\" \"yarn workspace admin dev\" \"yarn workspace api start:dev\"",
+    "lint": "yarn workspace admin lint & yarn workspace api lint"
+  },
+  "devDependencies": {
+    "concurrently": "^8.1.0"
+  }
+}
